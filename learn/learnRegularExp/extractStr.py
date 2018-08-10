@@ -165,7 +165,36 @@ for tem in findStr:
 
 #提取url
 findStr = re.findall(u'"(http://[^"]+)"',str)
-print "文中的url如下："
+print "文中的url如下(方法一)："
 for tem in findStr:
     print tem
 
+'''
+提取url（使用？符号来作非为贪婪匹配）：
+1、什么是正则表达式的贪婪与非贪婪匹配
+
+　　如：String str="abcaxc";
+
+　　　　Patter p="ab*c";
+
+　　贪婪匹配：正则表达式一般趋向于最大长度匹配，也就是所谓的贪婪匹配。如上面使用模式p匹配字符串str，结果就是匹配到：abcaxc(ab*c)。
+
+　　非贪婪匹配：就是匹配到结果就好，就少的匹配字符。如上面使用模式p匹配字符串str，结果就是匹配到：abc(ab*c)。
+2、编程中如何区分两种模式
+
+　　默认是贪婪模式；在量词后面直接加上一个问号？就是非贪婪模式。
+
+　　下面的都是量词：
+
+                    {m,n}：m到n个
+
+　　　　　*：任意多个
+
+　　　　　+：一个到多个
+
+　　　　　？：0或一个
+'''
+findStr = re.findall(u'"(http://.+?)"',str)
+print "文中的url如下(方法二)："
+for tem in findStr:
+    print tem
