@@ -162,12 +162,14 @@ findStr = re.findall(u';">(.+)</td',str)
 print "文中的姓名如下："
 for tem in findStr:
     print tem
+print "------------------------------------------------"
 
 #提取url
 findStr = re.findall(u'"(http://[^"]+)"',str)
 print "文中的url如下(方法一)："
 for tem in findStr:
     print tem
+print "------------------------------------------------"
 
 '''
 提取url（使用？符号来作非为贪婪匹配）：
@@ -186,7 +188,7 @@ for tem in findStr:
 
 　　下面的都是量词：
 
-                    {m,n}：m到n个
+        {m,n}：m到n个
 
 　　　　　*：任意多个
 
@@ -198,3 +200,26 @@ findStr = re.findall(u'"(http://.+?)"',str)
 print "文中的url如下(方法二)："
 for tem in findStr:
     print tem
+print "------------------------------------------------"
+
+#提取文中的所有css标签
+findStr = re.findall(u'<link.+stylesheet.+>?',str)
+print "文中定义的css如下："
+for tem in findStr:
+    print tem
+print "------------------------------------------------"
+
+#提取多行
+comment = re.compile('<table class="table table-striped">\n(.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n)')
+result = comment.findall(str)
+print result
+print "------------------------------------------------"
+
+#使用re.DOTALL提取多行
+#re.compile()函数接受一个标志参数叫re.DOTALL,在这里非常有用，它可以让正则表达式中的点（.）匹配包括换行符在内的任意字符
+comment = re.compile('<table class="table table-striped">\n(.*)<tbody>',re.DOTALL)
+result = comment.findall(str)
+print result[0]
+print "------------------------------------------------"
+
+
