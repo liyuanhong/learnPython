@@ -3,7 +3,7 @@ import  re
 
 str = 'my name is honghong age 28 hellohello how are you hello hellohellohello hahahahah !'
 
-#找到文中一个或多个连续的hello字符串
+#找到文中一个或多个连续的hello字符串（使用迭代的方式finditer来查找）
 findStr = re.finditer(u'(hello)+',str)
 for i in findStr:
     print i.group()
