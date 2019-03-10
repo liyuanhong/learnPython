@@ -1,0 +1,18 @@
+---
+name: lili
+age: 22
+other:
+  -
+    name: Mark McGwire
+    hr:   65
+    avg:  0.278
+  -
+    name: Sammy Sosa
+    hr:   63
+    avg:  0.288es
+friends:
+  - name: liuliu
+  - name: yanghuan
+  - name: lihao
+  - name: anqing
+  - name: nana
